@@ -7,6 +7,9 @@ function [re1, re2]=main(Expseq, param, parastep, TimeLimit, returncondition, si
 
 	t1 = clock;
 	[re1,re2] = BestParaFinder(paraspace, TimeLimit, returncondition, Expseq, param, parastep, sig, looptype);
+
+	re1 = re1(2,:);
+	re2 = re2/length(Expseq);
 	
 	disp(['Time cost: ', num2str(etime(clock,t1)/60), ' min'])
 
